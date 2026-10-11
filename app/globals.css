@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* Same palette as the mobile app (app_theme.dart). */
+@theme {
+  --color-ink: #171717;
+  --color-muted: #6e6e69;
+  --color-page: #f2f2ee;
+  --color-surface: #ffffff;
+  --color-soft: #e9e9e4;
+  --color-line: #dcdcd5;
+
+  --color-brand: #277a55;
+  --color-brand-soft: #e2f1e8;
+  --color-danger: #c84a4a;
+  --color-danger-soft: #f8e5e3;
+  --color-info: #3a83c6;
+  --color-info-soft: #e4f0fa;
+  --color-warn: #d97721;
+  --color-warn-soft: #ffebdd;
+}
+
+@theme inline {
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* No page scroll behind an open modal. */
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+/* Visible keyboard focus everywhere (utilities such as outline-none still win). */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+}
